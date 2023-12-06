@@ -1,0 +1,8 @@
+[
+    {
+        "instance_prompt": "photo of instance akali",
+        "class_prompt": "photo of a akali",
+        "instance_data_dir": "./data/AKALI",
+        "class_data_dir": "./data/AKALI_instance"
+    }
+]
