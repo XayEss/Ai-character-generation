@@ -79,9 +79,11 @@ validation_epochs - 10
 The above variables can be customized inside the script file for DreamBooth or LoRA training.
 
 DreamBooth:
+
 Open ```DB-Finetuning.ipynb``` notebook and customize the variables as desired. This code utilizes the ```train_dreambooth.py``` script from the ```diffusers``` library. Customize MODEL_NAME to change the model and OUTPUT_DIR for the output directory. Edit the concepts list to add new concepts to train on. The concept list specifies a dictionaries with the folloeing parameters: instance_prompt - the prompt to associate images with unique words; class_prompt-general propt without any unique words; instance_data_dir - the directory with images we want to teach on;  class_data_dir - the directory of images with concepts we want to preserve. Run all the cells to train the model. Run the inference section to generate images using the trained model, th model_path and promp have to be specified.
 
-LoRA
+LoRA:
+
 A LoRA can be trained by using the ```lora-train.ipynb``` notebook, MODEL_NAME, OUTPUT_DIR, DATASET_NAME have to be specified to before running the notebook. DATASET_NAME specifies the name of the dataset as on huggingface hub. To create a custom dataset the 'dataset_path' and 'labels_paths' variables need to point to the images and labels, where labels is a folder of txt files where the name of the file matches the name of the corresponding image. Still, DATASET_NAME has to be correctly pointing to the newly uploaded dataset. Other training parameters can be specified as desired. This code utilizes the training script ```train_text_to_image_lora.py``` from the ```diffusers``` library. After training the model will be saved to th OUTPUT_DIR location.
 
 ## Results
@@ -94,13 +96,13 @@ The following promt was used to generate the images:
 The results produced by different models:
 
 Base stable-diffusion-v1.5:
-![alt text](https://github.com/XayEss/Ai-character-generation/tree/main/images/cypher-notune.png?raw=true)
+![alt text](https://github.com/XayEss/Ai-character-generation/blob/main/images/cypher-notune.png?raw=true)
 
 DreamBooth fine-tuned:
-![alt text](https://github.com/XayEss/Ai-character-generation/tree/main/images/cypher-db.png?raw=true)
+![alt text](https://github.com/XayEss/Ai-character-generation/blob/main/images/cypher-db.png?raw=true)
 
 LoRA:
-![alt text](https://github.com/XayEss/Ai-character-generation/tree/main/images/cypher-lora.png?raw=true)
+![alt text](https://github.com/XayEss/Ai-character-generation/blob/main/images/cypher-lora.png?raw=true)
 
 Here we can see the comparison on the generated images. Base stable diffusion generated incoherent noise and didn't know about the character at all. DreamBooth produced a recognizable picture of Cypher that is not precise, still elements of his character could be see, this is an impressive leap compared to the not fine-tuned model. The LoRA produced result image is the closes to the original character, which shows the high-quality approach of Low Rank Adaptations. However the image is all pixelated, mostly due to the lower resolution of our data. We can see that both approaches have different results, the DreamBooth fine-tuned model was able to learn the character to a limited extent which migh be because of insufficient training, nevertheless the picture stayed clean, as the model knows how to produce high-quality images. On the other hand, LoRA managed to capture the character in all details but also captured the low resolution of our data. Furher is a comparison of stable-diffusion-v1.5 to a couterfeitv3.0 model, which was already fully fine-tuned using the DreamBooth technique. This model was trained on different art, anime styled character and is better at producing them.
 This is a picture of a character from League of Legends named Ahri:
