@@ -94,13 +94,13 @@ The following promt was used to generate the images:
 The results produced by different models:
 
 Base stable-diffusion-v1.5:
-![alt text](https://github.com/XayEss/Ai-character-generation/images/cypher-notune.png)
+![alt text](https://github.com/XayEss/Ai-character-generation/tree/main/images/cypher-notune.png)
 
 DreamBooth fine-tuned:
-![alt text](https://github.com/XayEss/Ai-character-generation/images/cypher-db.png)
+![alt text](https://github.com/XayEss/Ai-character-generation/tree/main/images/cypher-db.png)
 
 LoRA:
-![alt text](https://github.com/XayEss/Ai-character-generation/images/cypher-lora.png)
+![alt text](https://github.com/XayEss/Ai-character-generation/tree/main/images/cypher-lora.png)
 
 Here we can see the comparison on the generated images. Base stable diffusion generated incoherent noise and didn't know about the character at all. DreamBooth produced a recognizable picture of Cypher that is not precise, still elements of his character could be see, this is an impressive leap compared to the not fine-tuned model. The LoRA produced result image is the closes to the original character, which shows the high-quality approach of Low Rank Adaptations. However the image is all pixelated, mostly due to the lower resolution of our data. We can see that both approaches have different results, the DreamBooth fine-tuned model was able to learn the character to a limited extent which migh be because of insufficient training, nevertheless the picture stayed clean, as the model knows how to produce high-quality images. On the other hand, LoRA managed to capture the character in all details but also captured the low resolution of our data. Furher is a comparison of stable-diffusion-v1.5 to a couterfeitv3.0 model, which was already fully fine-tuned using the DreamBooth technique. This model was trained on different art, anime styled character and is better at producing them.
 This is a picture of a character from League of Legends named Ahri:
